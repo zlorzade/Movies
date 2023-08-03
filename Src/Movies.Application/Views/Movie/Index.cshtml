@@ -1,0 +1,39 @@
+﻿@section styles {
+
+<link href="lib/filepond/filepond.min.css"
+      rel="stylesheet"
+      type="text/css"
+      asp-append-version="true" />
+}
+
+<div class="container p-3">
+
+    <div class="mb-3">
+        <label for="file" class="form-label">بارگذاری فایل</label>
+        <input type="file" name="file" class="file-pond" id="file-upload" required>
+    </div>
+</div>
+
+@section Scripts{
+<script src="/lib/filepond/filepond.min.js"
+        asp-append-version="true"
+        defer>
+</script>
+<script src="/lib/filepond/filepond-plugin-file-validate-size.js"
+        asp-append-version="true"
+        defer>
+</script>
+<script src="/lib/filepond/filepond-plugin-file-validate-type.js"
+        asp-append-version="true"
+        defer>
+</script>
+<script src="/lib/filepond/locales/fa_ir.js"
+        asp-append-version="true"
+        defer>
+</script>
+<script src="js/upload_movie_file.js"
+        asp-append-version="true"
+        defer>
+</script>
+
+}
