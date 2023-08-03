@@ -22,7 +22,7 @@ namespace Movies.Application
         public async Task<IActionResult> Add(IFormFile file)
         {
             using var stream = file.OpenReadStream();
-            var genres = ExcelFileReader.Read<GenreDto>(stream);
+            var genres = ExcelFileReader.Read<GenreDto>(stream).Where(x => x.Code > 0).ToList();
             await _genreService.SyncGenres(genres);
 
             return Ok();

@@ -26,7 +26,7 @@ namespace Movies.Application
         public async Task<IActionResult> Add(IFormFile file)
         {
             using var stream = file.OpenReadStream();
-            var movies = ExcelFileReader.Read<MovieDto>(stream);
+            var movies = ExcelFileReader.Read<MovieDto>(stream).Where(x => x.Code > 0).ToList();
             await _movieService.SyncMovies(movies);
             return Ok();
         }

@@ -20,7 +20,7 @@ namespace Movies.Infrastructure
             IEnumerable<Movie> moviesFromInput = FillGenreId(DicOfmoviesAndGenreCodeFromInput, generesCodeAndIdExistedInDb);
             List<int> mustBeDeleteMoviesId =
                  moviesCodeAndIdExistedInDb
-                .ExceptBy(DicOfmoviesAndGenreCodeFromInput.Values, c => c.Key)
+                .ExceptBy(DicOfmoviesAndGenreCodeFromInput.Keys.Select(x=>x.Code), c => c.Key)
                 .Select(c => c.Value)
                 .ToList();
 
